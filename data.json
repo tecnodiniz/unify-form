@@ -448,6 +448,438 @@
                 }
             ],
             "data_criacao": "03/04/2025 11:20:03"
+        },
+        {
+            "id": "77479210-5580-4228-9e1b-41e0d43a9058",
+            "produto": "RC Eventos",
+            "titulo": "Formulário Facility&Bond- RC Eventos",
+            "seguradoras": [
+                "Tokio",
+                "Zurich"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do Proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "CNPJ:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Endereço (se mais de um, informe cada endereço, indicando o sócio ou dirigente responsável pelo serviço, em cada endereço).",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Data do início das operações do proponente (Incluindo datas de Instalação e Montagem + Realização do Evento).",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Durante os últimos cinco anos foi alterada a denominação social do estabelecimento, efetuou-se compra de, ou fusão com outro estabelecimento? Se afirmativa a resposta, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Informe detalhes de seguros semelhantes, contratados durante os últimos dois anos:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Foi recusada alguma proposta semelhante feita em nome do proponente pelos atuais sócios ou seus predecessores no negócio? Em caso afirmativo, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Algum seguro foi cancelado ou teve sua renovação recusada? Em caso afirmativo, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Houve qualquer reclamação de terceiros contra o proponente ou contra qualquer de seus sócios ou diretores? Informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Tem conhecimento de qualquer fato que possa vir a resultar em reclamação contra o proponente?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Descrição do evento objeto da garantia pretendida.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Fornecer detalhes sobre o evento.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Público estimado.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Período de realização.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Local onde ocorrerá o evento.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "O local respectivo é ambiente fechado ou ao ar livre?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Existe restaurante ou similar e parque de diversões no local?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "O proponente deseja cobertura para os artistas e/ou atletas que participarão do evento?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Limite de Responsabilidade pretendido.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Justificativa do valor pretendido.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                }
+            ],
+            "data_criacao": "03/04/2025 12:32:11"
+        },
+        {
+            "id": "871a28e3-077a-425a-a2b5-1dd30a323b71",
+            "produto": "RC Eventos",
+            "titulo": "Formulário Facility&Bond- RC Eventos",
+            "seguradoras": [
+                "Tokio",
+                "Zurich"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do Proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "CNPJ:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Endereço (se mais de um, informe cada endereço, indicando o sócio ou dirigente responsável pelo serviço, em cada endereço).",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Data do início das operações do proponente (Incluindo datas de Instalação e Montagem + Realização do Evento).",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Durante os últimos cinco anos foi alterada a denominação social do estabelecimento, efetuou-se compra de, ou fusão com outro estabelecimento? Se afirmativa a resposta, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Informe detalhes de seguros semelhantes, contratados durante os últimos dois anos:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Foi recusada alguma proposta semelhante feita em nome do proponente pelos atuais sócios ou seus predecessores no negócio? Em caso afirmativo, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Algum seguro foi cancelado ou teve sua renovação recusada? Em caso afirmativo, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Houve qualquer reclamação de terceiros contra o proponente ou contra qualquer de seus sócios ou diretores? Informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Tem conhecimento de qualquer fato que possa vir a resultar em reclamação contra o proponente?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Descrição do evento objeto da garantia pretendida.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Fornecer detalhes sobre o evento.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Público estimado.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Período de realização.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Local onde ocorrerá o evento.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "O local respectivo é ambiente fechado ou ao ar livre?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Existe restaurante ou similar e parque de diversões no local?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "O proponente deseja cobertura para os artistas e/ou atletas que participarão do evento?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Limite de Responsabilidade pretendido.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Justificativa do valor pretendido.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                }
+            ],
+            "data_criacao": "03/04/2025 15:45:30"
+        },
+        {
+            "id": "c9f3bbc3-affc-44b4-bba8-cb87bbc6d842",
+            "produto": "RC Eventos",
+            "titulo": "Formulário Facility&Bond- RC Eventos",
+            "seguradoras": [
+                "Tokio",
+                "Zurich"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do Proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "CNPJ",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Endereço (se mais de um, informe cada endereço, indicando o sócio ou dirigente responsável pelo serviço, em cada endereço).",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Data do início das operações do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Durante os últimos cinco anos, foi alterada a denominação social do estabelecimento, efetuou-se compra de, ou fusão com outro estabelecimento? Se afirmativa a resposta, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Informe detalhes de seguros semelhantes, contratados durante os últimos dois anos\n- Seguradora:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Período:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Limites Segurados:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Franquia:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Foi recusada alguma proposta semelhante feita em nome do proponente pelos atuais sócios ou seus predecessores no negócio? Em caso afirmativo, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Algum seguro foi cancelado ou teve sua renovação recusada? Em caso afirmativo, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Houve qualquer reclamação de terceiros contra o proponente ou contra qualquer de seus sócios ou diretores? Informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Tem conhecimento de qualquer fato que possa vir a resultar em reclamação contra o proponente?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Descrição do evento objeto da garantia pretendida.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "fornecer detalhes sobre o evento;",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "o público estimado;",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "o período de realização;",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "o local onde ocorrerá o evento;",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "se o local respectivo é ambiente fechado ou ao ar livre;",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "a existência de restaurante ou similar e parque de diversões;",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "o proponente deseja cobertura para os artistas e/ou atletas que participarão do evento?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Limite de Responsabilidade pretendido:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Justificativa do valor pretendido:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Declaro que as informações acima são verdadeiras e que estou ciente de que, em caso de sinistro, se for verificado que os valores que serviram de base ao cálculo do prêmio foram inferiores aos contabilizados, a indenização será reduzida proporcionalmente à diferença entre o prêmio devido e o pago.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Local e Data",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Assinatura do Proponente ou seu representante Legal",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                }
+            ],
+            "data_criacao": "03/04/2025 15:56:12"
         }
     ]
 }

@@ -9,9 +9,14 @@ from reportlab.lib.pagesizes import letter
 import docx
 import re
 import xlsxwriter
-import pdb
+import pdb # Debuger
 from werkzeug.utils import secure_filename
+from openai import OpenAI
+from dotenv import load_dotenv
 
+load_dotenv()
+
+api_key=os.getenv("OPENAI_API_KEY")
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 app.jinja_env.globals.update(now=datetime.now)
@@ -83,29 +88,30 @@ def extract_questions_from_docx(file_path):
     try:
         doc = docx.Document(file_path)
         text = "\n".join([para.text for para in doc.paragraphs])
+        questions.append(text)
      
-        # Procurar por padrões comuns de perguntas
-        patterns = [
-            r'/^.(?:\d)?+(?:\.\s*)?[A-Za-zÀ-ÖØ-öø-ÿ\s\d\(\) \/,]+[:?]\s*$/gm'
-            r'^\d+(?:\.\s*)?[A-Za-zÀ-ÖØ-öø-ÿ\s\d\(\),]+:\s*$',
-            r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\?',  # Texto seguido por ponto de interrogação
-            r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+):\s*'  # Texto seguido por dois pontos
-            r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\s*_+',  # Texto seguido por sublinhados
-            r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\[\s*\]',  # Texto seguido por colchetes vazios
-            r'\d+\.\s*[A-Za-zÀ-ÖØ-öø-ÿ\s\d]+:'
-        ]
+        # # Procurar por padrões comuns de perguntas
+        # patterns = [
+        #     r'/^.(?:\d)?+(?:\.\s*)?[A-Za-zÀ-ÖØ-öø-ÿ\s\d\(\) \/,]+[:?]\s*$/gm'
+        #     r'^\d+(?:\.\s*)?[A-Za-zÀ-ÖØ-öø-ÿ\s\d\(\),]+:\s*$',
+        #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\?',  # Texto seguido por ponto de interrogação
+        #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+):\s*'  # Texto seguido por dois pontos
+        #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\s*_+',  # Texto seguido por sublinhados
+        #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\[\s*\]',  # Texto seguido por colchetes vazios
+        #     r'\d+\.\s*[A-Za-zÀ-ÖØ-öø-ÿ\s\d]+:'
+        # ]
         
-        for pattern in patterns:
-            matches = re.findall(pattern, text)
-            for match in matches:
-                question = match.strip()
-                if question and len(question) > 3 and question not in [q["texto"] for q in questions]:
-                    questions.append({
-                        "texto": question,
-                        "tipo": "text",
-                        "obrigatorio": False,
-                        "secao": "Geral"
-                    })
+        # for pattern in patterns:
+        #     matches = re.findall(pattern, text)
+        #     for match in matches:
+        #         question = match.strip()
+        #         if question and len(question) > 3 and question not in [q["texto"] for q in questions]:
+        #             questions.append({
+        #                 "texto": question,
+        #                 "tipo": "text",
+        #                 "obrigatorio": False,
+        #                 "secao": "Geral"
+        #             })
     except Exception as e:
         print(f"Erro ao extrair perguntas do DOCX: {e}")
     
@@ -155,65 +161,71 @@ def organize_questions_by_section(questions):
     
     return organized_questions
 
-def remove_duplicate_questions(questions):
-    """Remove perguntas duplicadas ou muito similares"""
-    unique_questions = []
-    seen_texts = set()
+# def remove_duplicate_questions(questions):
+#     """Remove perguntas duplicadas ou muito similares"""
+#     unique_questions = []
+#     seen_texts = set()
     
-    for question in questions:
-        # Normalizar texto para comparação
-        normalized_text = re.sub(r'[^\w\s]', '', question["texto"].lower())
-        normalized_text = re.sub(r'\s+', ' ', normalized_text).strip()
+#     for question in questions:
+#         # Normalizar texto para comparação
+#         normalized_text = re.sub(r'[^\w\s]', '', question["texto"].lower())
+#         normalized_text = re.sub(r'\s+', ' ', normalized_text).strip()
         
-        # Verificar se já existe uma pergunta similar
-        is_duplicate = False
-        for seen_text in seen_texts:
-            # Calcular similaridade (implementação simples)
-            if normalized_text in seen_text or seen_text in normalized_text:
-                is_duplicate = True
-                break
+#         # Verificar se já existe uma pergunta similar
+#         is_duplicate = False
+#         for seen_text in seen_texts:
+#             # Calcular similaridade (implementação simples)
+#             if normalized_text in seen_text or seen_text in normalized_text:
+#                 is_duplicate = True
+#                 break
             
-            # Outra opção: calcular distância de Levenshtein
-            # Se a similaridade for alta, considerar como duplicata
+#             # Outra opção: calcular distância de Levenshtein
+#             # Se a similaridade for alta, considerar como duplicata
         
-        if not is_duplicate:
-            seen_texts.add(normalized_text)
-            unique_questions.append(question)
+#         if not is_duplicate:
+#             seen_texts.add(normalized_text)
+#             unique_questions.append(question)
     
-    return unique_questions
-
+#     return unique_questions
+def ai_filter(questions):
+    client = OpenAI(api_key=api_key)
+    
+    response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {
+            "role": "system",
+            "content": "Você é um assistente que retorna apenas JSON válido. Sempre responda no formato `{ \"data\": [] }` sem explicações extras.\n\n"
+                       "Você receberá um array contendo itens em string, cada item representa um formulário. "
+                       "Sua função é criar um formulário inteligente unificado.\n\n"
+                       "Cada item do array representa um formulário. Retorne apenas JSON válido com a estrutura "
+                       "{ \"data\": [{'texto': 'Questão', 'tipo': 'text', 'obrigatorio': \"false\", 'secao': 'Geral'}] } "
+                       "Por padrão, toda 'secao' é 'Geral'.\n\n"
+                       "O valor `false` deve sempre ser uma string \"false\"."
+        },
+        {
+            "role": "user",
+            "content": json.dumps(questions)  # Enviando a lista como JSON válido
+        }
+    ],
+    response_format={"type": "json_object"},  # Garantindo retorno JSON válido
+    temperature=1,
+    max_tokens=2048,
+    top_p=1,
+    frequency_penalty=0,
+    presence_penalty=0
+    )
+    return response
 def generate_unified_form(product, questions, insurers):
     """Gera um formulário unificado baseado nas perguntas extraídas"""
     form_id = str(uuid.uuid4())
     
     # Organizar perguntas por seção
-
-    questions = [
-  {"texto": "Nome do Proponente:", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "CNPJ:", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Endereço (se mais de um, informe cada endereço, indicando o sócio ou dirigente responsável pelo serviço, em cada endereço).", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Data do início das operações do proponente (Incluindo datas de Instalação e Montagem + Realização do Evento).", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Durante os últimos cinco anos foi alterada a denominação social do estabelecimento, efetuou-se compra de, ou fusão com outro estabelecimento? Se afirmativa a resposta, informe detalhes.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Informe detalhes de seguros semelhantes, contratados durante os últimos dois anos:", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Foi recusada alguma proposta semelhante feita em nome do proponente pelos atuais sócios ou seus predecessores no negócio? Em caso afirmativo, informe detalhes.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Algum seguro foi cancelado ou teve sua renovação recusada? Em caso afirmativo, informe detalhes.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Houve qualquer reclamação de terceiros contra o proponente ou contra qualquer de seus sócios ou diretores? Informe detalhes.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Tem conhecimento de qualquer fato que possa vir a resultar em reclamação contra o proponente?", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Descrição do evento objeto da garantia pretendida.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Fornecer detalhes sobre o evento.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Público estimado.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Período de realização.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Local onde ocorrerá o evento.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "O local respectivo é ambiente fechado ou ao ar livre?", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Existe restaurante ou similar e parque de diversões no local?", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "O proponente deseja cobertura para os artistas e/ou atletas que participarão do evento?", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Limite de Responsabilidade pretendido.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"},
-  {"texto": "Justificativa do valor pretendido.", "tipo": "text", "obrigatorio": "false", "secao": "Geral"}
-]
-    organized_questions = organize_questions_by_section(questions)
+    questions=ai_filter(questions)
+  
+    json_load = json.loads(questions.choices[0].message.content)["data"]
+    organized_questions = organize_questions_by_section(json_load)
     
-    # Remover duplicatas
-    unique_questions = remove_duplicate_questions(organized_questions)
   
     # Criar formulário unificado
     unified_form = {
@@ -221,7 +233,7 @@ def generate_unified_form(product, questions, insurers):
         "produto": product,
         "titulo": f"Formulário Facility&Bond- {product}",
         "seguradoras": insurers,
-        "perguntas": unique_questions,
+        "perguntas": organized_questions,
         "data_criacao": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     }
 
@@ -560,8 +572,9 @@ def upload():
             all_questions.extend(questions)
         
         # Gerar formulário unificado
-  
+        
         unified_form = generate_unified_form(product, all_questions, insurers)
+    
      
         
         # Gerar arquivos para download
