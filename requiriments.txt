@@ -1,0 +1,7 @@
+sk
+PyPDF2
+reportlab
+python-docx
+XlsxWriter
+Werkzeug
+

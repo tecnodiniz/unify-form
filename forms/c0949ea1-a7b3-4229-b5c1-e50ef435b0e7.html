@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Unificado - Teste 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .form-title {
+            color: #0056b3;
+            font-weight: 700;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            border-left: 4px solid #0056b3;
+        }
+        .form-section-title {
+            font-weight: 700;
+            color: #0056b3;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 600;
+        }
+        .required {
+            color: #dc3545;
+        }
+        .form-footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            border-radius: 50px;
+        }
+        .btn-primary:hover {
+            background-color: #004494;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1 class="form-title">Formulário Unificado - Teste 2</h1>
+                <p class="text-muted">Produto: Teste 2 | Seguradoras: A, B</p>
+            </div>
+            
+            <form id="unified-form">
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Informações Adicionais</h3>
+
+                    <div class="form-group">
+                        <label for="ou_fusão_com_outro_estabelecimento" class="form-label">ou fusão com outro estabelecimento </label>
+                        <input type="text" class="form-control" id="ou_fusão_com_outro_estabelecimento" name="ou_fusão_com_outro_estabelecimento" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contratados_durante_os_últimos_dois_anos" class="form-label">contratados durante os últimos dois anos </label>
+                        <input type="text" class="form-control" id="contratados_durante_os_últimos_dois_anos" name="contratados_durante_os_últimos_dois_anos" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seguradora" class="form-label">Seguradora </label>
+                        <input type="text" class="form-control" id="seguradora" name="seguradora" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="período" class="form-label">Período </label>
+                        <input type="text" class="form-control" id="período" name="período" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="informe_detalhes" class="form-label">Informe detalhes </label>
+                        <input type="text" class="form-control" id="informe_detalhes" name="informe_detalhes" >
+                    </div>
+
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Dados do Proponente</h3>
+
+                    <div class="form-group">
+                        <label for="foi_recusada_alguma_proposta_semelhante_feito_em_nome_do_proponente_pelos_atuais_sócios_ou_seus_predecessores_no_negócio" class="form-label">Foi recusada alguma proposta semelhante feito em nome do proponente pelos atuais sócios ou seus predecessores no negócio </label>
+                        <input type="text" class="form-control" id="foi_recusada_alguma_proposta_semelhante_feito_em_nome_do_proponente_pelos_atuais_sócios_ou_seus_predecessores_no_negócio" name="foi_recusada_alguma_proposta_semelhante_feito_em_nome_do_proponente_pelos_atuais_sócios_ou_seus_predecessores_no_negócio" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="houve_qualquer_reclamação_de_terceiros_contra_o_proponente_ou_contra_qualquer_de_seus_sócios_ou_diretores" class="form-label">Houve qualquer reclamação de terceiros contra o proponente ou contra qualquer de seus sócios ou diretores </label>
+                        <input type="text" class="form-control" id="houve_qualquer_reclamação_de_terceiros_contra_o_proponente_ou_contra_qualquer_de_seus_sócios_ou_diretores" name="houve_qualquer_reclamação_de_terceiros_contra_o_proponente_ou_contra_qualquer_de_seus_sócios_ou_diretores" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tem_conhecimento_de_qualquer_fato_que_possa_vir_a_resultar_em_reclamação_contra_o_proponente" class="form-label">Tem conhecimento de qualquer fato que possa vir a resultar em reclamação contra o proponente </label>
+                        <input type="text" class="form-control" id="tem_conhecimento_de_qualquer_fato_que_possa_vir_a_resultar_em_reclamação_contra_o_proponente" name="tem_conhecimento_de_qualquer_fato_que_possa_vir_a_resultar_em_reclamação_contra_o_proponente" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data_do_início_das_operações_do_proponente" class="form-label">Data do início das operações do proponente </label>
+                        <input type="text" class="form-control" id="data_do_início_das_operações_do_proponente" name="data_do_início_das_operações_do_proponente" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="4_foi_recusada_alguma_proposta_para_seguro_semelhante_feito_em_nome_do_proponente_pelos_atuais_sócios_ou_seus_predecessores_no_negócio" class="form-label">4	Foi recusada alguma proposta para seguro semelhante feito em nome do proponente pelos atuais sócios ou seus predecessores no negócio </label>
+                        <input type="text" class="form-control" id="4_foi_recusada_alguma_proposta_para_seguro_semelhante_feito_em_nome_do_proponente_pelos_atuais_sócios_ou_seus_predecessores_no_negócio" name="4_foi_recusada_alguma_proposta_para_seguro_semelhante_feito_em_nome_do_proponente_pelos_atuais_sócios_ou_seus_predecessores_no_negócio" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cnpj" class="form-label">CNPJ </label>
+                        <input type="text" class="form-control" id="cnpj" name="cnpj" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereço" class="form-label">Endereço </label>
+                        <input type="text" class="form-control" id="endereço" name="endereço" >
+                    </div>
+
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Cobertura</h3>
+
+                    <div class="form-group">
+                        <label for="algum_seguro_foi_cancelado_ou_teve_sua_renovação_recusada" class="form-label">Algum seguro foi cancelado ou teve sua renovação recusada </label>
+                        <input type="text" class="form-control" id="algum_seguro_foi_cancelado_ou_teve_sua_renovação_recusada" name="algum_seguro_foi_cancelado_ou_teve_sua_renovação_recusada" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="limites_segurados" class="form-label">Limites Segurados </label>
+                        <input type="text" class="form-control" id="limites_segurados" name="limites_segurados" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="franquia" class="form-label">Franquia </label>
+                        <input type="text" class="form-control" id="franquia" name="franquia" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="limite_de_responsabilidade_pretendido" class="form-label">Limite de Responsabilidade pretendido </label>
+                        <input type="text" class="form-control" id="limite_de_responsabilidade_pretendido" name="limite_de_responsabilidade_pretendido" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="justificativa_do_valor_pretendido" class="form-label">Justificativa do valor pretendido </label>
+                        <input type="text" class="form-control" id="justificativa_do_valor_pretendido" name="justificativa_do_valor_pretendido" >
+                    </div>
+
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Informações do Evento</h3>
+
+                    <div class="form-group">
+                        <label for="ou_atletas_que_participarão_do_evento" class="form-label">ou atletas que participarão do evento </label>
+                        <input type="text" class="form-control" id="ou_atletas_que_participarão_do_evento" name="ou_atletas_que_participarão_do_evento" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ou_valor_total_que_será_gasto_no_evento" class="form-label">ou Valor Total que será gasto no Evento </label>
+                        <input type="text" class="form-control" id="ou_valor_total_que_será_gasto_no_evento" name="ou_valor_total_que_será_gasto_no_evento" >
+                    </div>
+
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Enviar Formulário</button>
+                </div>
+            </form>
+            
+            <div class="form-footer">
+                <p>Este formulário unificado foi gerado automaticamente e contém perguntas de múltiplas seguradoras.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('unified-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Formulário enviado com sucesso!');
+        });
+    </script>
+</body>
+</html>
