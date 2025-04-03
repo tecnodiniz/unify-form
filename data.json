@@ -2,7 +2,9 @@
     "produtos": [
         "ABC",
         "RC Eventos",
-        "RC Eventos v2"
+        "RC Eventos v2",
+        "PDF Version",
+        "Teste PDF"
     ],
     "formularios": [
         {
@@ -880,6 +882,305 @@
                 }
             ],
             "data_criacao": "03/04/2025 15:56:12"
+        },
+        {
+            "id": "5f62a997-83f9-4992-a670-0499ef63f7a4",
+            "produto": "PDF Version",
+            "titulo": "Formulário Facility&Bond- PDF Version",
+            "seguradoras": [
+                "A",
+                "B"
+            ],
+            "perguntas": [],
+            "data_criacao": "03/04/2025 16:10:21"
+        },
+        {
+            "id": "5d604956-791b-4262-bb17-d9a0f118556a",
+            "produto": "Teste PDF",
+            "titulo": "Formulário Facility&Bond- Teste PDF",
+            "seguradoras": [
+                "Seguradora A",
+                "Seguradora B"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Composição do Capital Social do Proponente (Indicar Participação de Cada Sócio)",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Sociedades Controladas às quais a Cobertura Deva ser Estendida",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Relação dos Administradores da Proponente e/ou das Controladas",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Fusões, Aquisições ou Compra de Participação em outra Sociedade",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Mudança na Razão Social",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Mudança do Sócio Majoritário",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Pedido de Recuperação Judicial",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Fusão, Aquisição, Incorporação ou Cisão",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Razão Social do Proponente",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Endereço",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Complemento",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "CNPJ",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Site",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Ramo de Atividade",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Data de Início das Atividades",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Informe se, nos últimos 5 anos, ocorreram os fatos abaixo e caso positivo, forneça detalhes",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Informe se há expectativa para os próximos 12 meses quanto ao acontecimento dos fatos abaixo",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Ingresso ou Retirada de Sócios",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Abertura de Capital",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Indenizações Pagas",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Demandas Judiciais ou Extrajudiciais, inclusive Inquéritos Administrativos, contra os Administradores atuais e/ou contra os Administradores de Gestões Anteriores",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Histórico"
+                },
+                {
+                    "texto": "Nome da Seguradora",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Limite de Responsabilidade",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Data de Vencimento da Apólice ou, se aplicável, do Cancelamento",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Redução de Receita ou de Lucro",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Alteração no quadro de Administradores",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Venda ou Interrupção de Operação de alguma Subsidiária",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Pedido de Falência, Recuperação Judicial, Intervenção ou Similar",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Informar Sobre a Ocorrência, nos últimos 5 anos, dos eventos abaixo",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "A Proponente e/ou suas Sociedades Controladas já foram, ou atualmente são, Contratantes do Seguro de Responsabilidade Civil de Administradores?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Já Houve Recusa por Parte de Alguma Seguradora para Contratação ou Renovação do Seguro de Responsabilidade Civil de Administradores?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Com relação aos Empregados, Informar Quantidade, Separando por Cidade/Estado Onde Trabalham",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Foram Feitas Demissões Coletivas nos últimos 12 meses? Se sim, Informar Quantidade, Local e Razão da Demissão Coletiva",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Existe um Manual de Ética ou Conduta para os Empregados? Se sim Anexar Cópia",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Informar Sobre a Existência de Ativos no Exterior, Especificando a Natureza e o Local",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "A Proponente, suas Controladas e/ou seus Administradores já foram demandados por Empregados em razão de responsabilidade por práticas trabalhistas?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Caso Positivo, Informar o Número de Reuniões Realizadas no último Exercício",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Informar em relação ao Proponente, a Existência de Conselho Fiscal ou Órgão de Natureza Similar",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Assinatura",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Limite de Garantia Desejado",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Favor Anexar os Seguintes Documentos: 1 - Cópia dos dois últimos balanços anuais com todas as notas e anexos, 2 - Cópia do Contrato Social e suas alterações, 3 - Cópia do relatório anual de atividades, se existente",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "O Proponente, ao apor sua assinatura neste questionário, declara que todas as informações aqui apresentadas são a expressão da verdade.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Por favor, comentar aspectos que, devido às suas características, julguem ser de interesse da Seguradora para a análise do risco",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                },
+                {
+                    "texto": "Local e Data",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações do Evento"
+                },
+                {
+                    "texto": "Nome e Cargo",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Dados do Proponente"
+                },
+                {
+                    "texto": "Assinatura",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Informações Adicionais"
+                }
+            ],
+            "data_criacao": "03/04/2025 16:15:58"
         }
     ]
 }

@@ -57,26 +57,27 @@ def extract_questions_from_pdf(file_path):
             for page_num in range(len(pdf.pages)):
                 page = pdf.pages[page_num]
                 text = page.extract_text()
+                questions.append(text)
+          
+                # # Procurar por padrões comuns de perguntas
+                # patterns = [
+                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\?',  # Texto seguido por ponto de interrogação
+                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+):\s*',  # Texto seguido por dois pontos
+                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\s*_+',  # Texto seguido por sublinhados
+                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\[\s*\]'  # Texto seguido por colchetes vazios
+                # ]
                 
-                # Procurar por padrões comuns de perguntas
-                patterns = [
-                    r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\?',  # Texto seguido por ponto de interrogação
-                    r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+):\s*',  # Texto seguido por dois pontos
-                    r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\s*_+',  # Texto seguido por sublinhados
-                    r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\[\s*\]'  # Texto seguido por colchetes vazios
-                ]
-                
-                for pattern in patterns:
-                    matches = re.findall(pattern, text)
-                    for match in matches:
-                        question = match.strip()
-                        if question and len(question) > 3 and question not in [q["texto"] for q in questions]:
-                            questions.append({
-                                "texto": question,
-                                "tipo": "text",
-                                "obrigatorio": False,
-                                "secao": "Geral"
-                            })
+                # for pattern in patterns:
+                #     matches = re.findall(pattern, text)
+                #     for match in matches:
+                #         question = match.strip()
+                #         if question and len(question) > 3 and question not in [q["texto"] for q in questions]:
+                #             questions.append({
+                #                 "texto": question,
+                #                 "tipo": "text",
+                #                 "obrigatorio": False,
+                #                 "secao": "Geral"
+                #             })
     except Exception as e:
         print(f"Erro ao extrair perguntas do PDF: {e}")
     
