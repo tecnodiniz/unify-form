@@ -1,127 +1,213 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upload de Formulários - Formulários Unificados para Seguros</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <style>
+      .spin {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="bi bi-file-earmark-text me-2"></i>Formulários Unificados
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="bi bi-house me-1"></i> Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/upload"><i class="bi bi-cloud-upload me-1"></i> Criar Formulário</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="bi bi-file-earmark-text me-2"></i>Formulários Unificados
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/"
+                ><i class="bi bi-house me-1"></i> Início</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/upload"
+                ><i class="bi bi-cloud-upload me-1"></i> Criar Formulário</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <div class="container mt-4">
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-info alert-dismissible fade show">
-                        <i class="bi bi-info-circle me-2"></i> {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="alert alert-info alert-dismissible fade show">
+        <i class="bi bi-info-circle me-2"></i> {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
 
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h5 class="mb-0"><i class="bi bi-cloud-upload me-2"></i>Criar Formulário Unificado</h5>
-            </div>
-            <div class="card-body">
-                <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
-                    <div class="mb-4">
-                        <h5>1. Selecione o Produto</h5>
-                        <div class="form-group">
-                            <label for="produto" class="form-label">Nome do Produto de Seguro</label>
-                            <input type="text" class="form-control" id="produto" name="produto" placeholder="Ex: RC Eventos, Vida, Garantia" required>
-                            <div class="form-text">Digite o nome do produto para o qual deseja criar um formulário unificado.</div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <h5>2. Faça Upload dos Formulários das Seguradoras</h5>
-                        <div class="file-upload-container">
-                            <div id="fileList">
-                                <div class="file-item mb-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-6">
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="bi bi-file-earmark"></i></span>
-                                                <input type="file" class="form-control" name="files[]" accept=".pdf,.doc,.docx" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <input type="text" class="form-control" name="seguradora_0" placeholder="Nome da Seguradora" required>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <button type="button" class="btn btn-outline-danger remove-file" disabled>
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-outline-primary" id="addFile">
-                                <i class="bi bi-plus-circle me-2"></i>Adicionar Outro Formulário
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle me-2"></i>
-                        <strong>Como funciona:</strong> Faça upload dos formulários das diferentes seguradoras (PDF ou Word). 
-                        O sistema extrairá automaticamente todas as perguntas e criará um formulário unificado pronto para uso.
-                    </div>
-
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-lg">
-                            <i class="bi bi-magic me-2"></i>Gerar Formulário Unificado
-                        </button>
-                    </div>
-                </form>
-            </div>
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">
+            <i class="bi bi-cloud-upload me-2"></i>Criar Formulário Unificado
+          </h5>
         </div>
+        <div class="card-body">
+          <form
+            action="/upload"
+            method="post"
+            enctype="multipart/form-data"
+            id="uploadForm"
+          >
+            <div class="mb-4">
+              <h5>1. Selecione o Produto</h5>
+              <div class="form-group">
+                <label for="produto" class="form-label"
+                  >Nome do Produto de Seguro</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="produto"
+                  name="produto"
+                  placeholder="Ex: RC Eventos, Vida, Garantia"
+                  required
+                />
+                <div class="form-text">
+                  Digite o nome do produto para o qual deseja criar um
+                  formulário unificado.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h5>2. Faça Upload dos Formulários das Seguradoras</h5>
+              <div class="file-upload-container">
+                <div id="fileList">
+                  <div class="file-item mb-3">
+                    <div class="row align-items-center">
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-text"
+                            ><i class="bi bi-file-earmark"></i
+                          ></span>
+                          <input
+                            type="file"
+                            class="form-control"
+                            name="files[]"
+                            accept=".pdf,.doc,.docx"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="seguradora_0"
+                          placeholder="Nome da Seguradora"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-1">
+                        <button
+                          type="button"
+                          class="btn btn-outline-danger remove-file"
+                          disabled
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  id="addFile"
+                >
+                  <i class="bi bi-plus-circle me-2"></i>Adicionar Outro
+                  Formulário
+                </button>
+              </div>
+            </div>
+
+            <div class="alert alert-info">
+              <i class="bi bi-info-circle me-2"></i>
+              <strong>Como funciona:</strong> Faça upload dos formulários das
+              diferentes seguradoras (PDF ou Word). O sistema extrairá
+              automaticamente todas as perguntas e criará um formulário
+              unificado pronto para uso.
+            </div>
+
+            <div class="d-grid gap-2">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                id="btn-submit"
+              >
+                <i class="bi bi-magic me-2"></i>Gerar Formulário Unificado
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">
-        <div class="container">
-            <div class="text-center">
-                <p>Formulários Unificados para Seguros &copy; {{ now.year }}</p>
-            </div>
+      <div class="container">
+        <div class="text-center">
+          <p>Formulários Unificados para Seguros &copy; {{ now.year }}</p>
         </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let fileCounter = 1;
-            
-            // Adicionar novo campo de arquivo
-            document.getElementById('addFile').addEventListener('click', function() {
-                const fileList = document.getElementById('fileList');
-                const newItem = document.createElement('div');
-                newItem.className = 'file-item mb-3';
-                newItem.innerHTML = `
+      document.addEventListener("DOMContentLoaded", function () {
+        let fileCounter = 1;
+
+        // Adicionar novo campo de arquivo
+        document
+          .getElementById("addFile")
+          .addEventListener("click", function () {
+            const fileList = document.getElementById("fileList");
+            const newItem = document.createElement("div");
+            newItem.className = "file-item mb-3";
+            newItem.innerHTML = `
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="input-group">
@@ -139,52 +225,63 @@
                         </div>
                     </div>
                 `;
-                fileList.appendChild(newItem);
-                fileCounter++;
-                
-                // Ativar botões de remoção
-                updateRemoveButtons();
-            });
-            
-            // Remover campo de arquivo
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('remove-file') || e.target.parentElement.classList.contains('remove-file')) {
-                    const button = e.target.classList.contains('remove-file') ? e.target : e.target.parentElement;
-                    const fileItem = button.closest('.file-item');
-                    fileItem.remove();
-                    updateRemoveButtons();
-                }
-            });
-            
-            // Atualizar estado dos botões de remoção
-            function updateRemoveButtons() {
-                const removeButtons = document.querySelectorAll('.remove-file');
-                if (removeButtons.length <= 1) {
-                    removeButtons[0].disabled = true;
-                } else {
-                    removeButtons.forEach(button => {
-                        button.disabled = false;
-                    });
-                }
-            }
-            
-            // Validação do formulário
-            document.getElementById('uploadForm').addEventListener('submit', function(e) {
-                const files = document.querySelectorAll('input[type="file"]');
-                let valid = true;
-                
-                files.forEach(file => {
-                    if (!file.value) {
-                        valid = false;
-                    }
-                });
-                
-                if (!valid) {
-                    e.preventDefault();
-                    alert('Por favor, selecione todos os arquivos de formulário.');
-                }
-            });
+            fileList.appendChild(newItem);
+            fileCounter++;
+
+            // Ativar botões de remoção
+            updateRemoveButtons();
+          });
+
+        // Remover campo de arquivo
+        document.addEventListener("click", function (e) {
+          if (
+            e.target.classList.contains("remove-file") ||
+            e.target.parentElement.classList.contains("remove-file")
+          ) {
+            const button = e.target.classList.contains("remove-file")
+              ? e.target
+              : e.target.parentElement;
+            const fileItem = button.closest(".file-item");
+            fileItem.remove();
+            updateRemoveButtons();
+          }
         });
+
+        // Atualizar estado dos botões de remoção
+        function updateRemoveButtons() {
+          const removeButtons = document.querySelectorAll(".remove-file");
+          if (removeButtons.length <= 1) {
+            removeButtons[0].disabled = true;
+          } else {
+            removeButtons.forEach((button) => {
+              button.disabled = false;
+            });
+          }
+        }
+
+        // Validação do formulário
+        document
+          .getElementById("uploadForm")
+          .addEventListener("submit", function (e) {
+            const files = document.querySelectorAll('input[type="file"]');
+            let valid = true;
+
+            files.forEach((file) => {
+              if (!file.value) {
+                valid = false;
+              }
+            });
+
+            if (!valid) {
+              e.preventDefault();
+              alert("Por favor, selecione todos os arquivos de formulário.");
+            } else {
+              const btn = document.getElementById("btn-submit");
+              btn.setAttribute("disabled", true);
+              btn.innerHTML = "GERANDO FORMULÁRIO...";
+            }
+          });
+      });
     </script>
-</body>
+  </body>
 </html>

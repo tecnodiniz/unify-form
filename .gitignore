@@ -129,6 +129,9 @@ celerybeat.pid
 /uploads/*
 # Environments
 .env
+forms/
+data.json
+uploads/
 .venv
 env/
 venv/

@@ -7,12 +7,16 @@ import PyPDF2
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 import docx
+from docx.shared import Inches , Pt
 import re
 import xlsxwriter
 import pdb # Debuger
 from werkzeug.utils import secure_filename
 from openai import OpenAI
 from dotenv import load_dotenv
+from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 load_dotenv()
 
@@ -226,13 +230,13 @@ def generate_unified_form(product, questions, insurers):
   
     json_load = json.loads(questions.choices[0].message.content)["data"]
     organized_questions = organize_questions_by_section(json_load)
-    
+
   
     # Criar formulário unificado
     unified_form = {
         "id": form_id,
         "produto": product,
-        "titulo": f"Formulário Facility&Bond- {product}",
+        "titulo": f"Questionário de cotação - {product}",
         "seguradoras": insurers,
         "perguntas": organized_questions,
         "data_criacao": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -248,44 +252,79 @@ def generate_unified_form(product, questions, insurers):
 def generate_docx_form(form_data, output_path):
     """Gera um documento DOCX com o formulário unificado"""
     doc = docx.Document()
-    
+
+    def set_spacing(run, spacing_val):
+        rPr = run._element.get_or_add_rPr()
+        spacing = OxmlElement("w:spacing")
+        spacing.set(qn("w:val"), str(spacing_val))
+        rPr.append(spacing)
+
+    # Header
+    section = doc.sections[0]
+    header = section.header
+    header_paragraph = header.paragraphs[0] if header.paragraphs else header.add_paragraph()
+
+    logo_path = os.path.abspath(os.path.join("img", "logo.jpg"))
+
+    if os.path.isfile(logo_path):
+        run = header_paragraph.add_run()
+        run.add_picture(logo_path, width=Inches(3))
+    else:
+        header_paragraph.text = "Facility & Bond Adm e Corretagem de Seguros Ltda."
+
     # Título
-    doc.add_heading(form_data["titulo"], 0)
-    
-    # Informações do formulário
-    doc.add_paragraph(f"Produto: {form_data['produto']}")
-    doc.add_paragraph(f"Seguradoras: {', '.join(form_data['seguradoras'])}")
-    doc.add_paragraph(f"Data de criação: {form_data['data_criacao']}")
     doc.add_paragraph()
-    
+    doc.add_heading(form_data["titulo"], 0)
+
+    # Informações do formulário (comentadas por enquanto)
+    # doc.add_paragraph(f"Produto: {form_data['produto']}")
+    # doc.add_paragraph(f"Seguradoras: {', '.join(form_data['seguradoras'])}")
+    # doc.add_paragraph(f"Data de criação: {form_data['data_criacao']}")
+    doc.add_paragraph()
+
     # Agrupar perguntas por seção
-    sections = {}
+    sections = {
+        "Dados do Proponente": [],
+        "Informações do Evento": [],
+        "Cobertura": [],
+        "Histórico": [],
+        "Informações Adicionais": []
+    }
     for pergunta in form_data["perguntas"]:
         secao = pergunta["secao"]
-        if secao not in sections:
-            sections[secao] = []
         sections[secao].append(pergunta)
-    
+
     # Adicionar perguntas por seção
     for secao, perguntas in sections.items():
-        doc.add_heading(secao, 1)
-        
-        for pergunta in perguntas:
-            p = doc.add_paragraph()
-            p.add_run(f"{pergunta['texto']}").bold = True
-            if pergunta["obrigatorio"]:
-                p.add_run(" *").bold = True
-            
-            # Adicionar linha para preenchimento
-            doc.add_paragraph("_" * 50)
-            doc.add_paragraph()
-    
+        if len(perguntas) > 0:
+            doc.add_heading(secao, 1)
+            for pergunta in perguntas:
+                p = doc.add_paragraph()
+                p.add_run(f"{pergunta['texto']}").bold = True
+                if pergunta["obrigatorio"]:
+                    p.add_run(" *").bold = True
+                doc.add_paragraph("R:")
+                doc.add_paragraph()
+
     # Rodapé
-    section = doc.sections[0]
     footer = section.footer
-    p = footer.paragraphs[0]
-    p.text = f"Formulário Facility & Bond - {form_data['produto']}"
-    
+    p = footer.paragraphs[0] if footer.paragraphs else footer.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+ 
+
+    # Primeira linha com espaçamento expandido
+    run1 = p.add_run("Facility & Bond Adm e Corretagem de Seguros Ltda.\n")
+    set_spacing(run1, 40)  # 2pt = 40
+
+    # Restante das informações do rodapé
+    run2 = p.add_run(
+        "Rua pompeu Vairo, 123 - Vila Thaís\n"
+        "CEP 12942 - 122 | Atibaia - SP\n"
+        "Tel/Whatsapp: (11) 4418 - 8329\n"
+        "e-mail: elementares@facilitybond.com.br"
+    )
+    run2.font.size = Pt(9)
+
     doc.save(output_path)
     return output_path
 
@@ -342,11 +381,17 @@ def generate_xlsx_form(form_data, output_path):
     worksheet.set_column('C:C', 40)
     
     # Agrupar perguntas por seção
-    sections = {}
+    sections = {
+        "Dados do Proponente":[],
+        "Informações do Evento":[],
+        "Cobertura":[],
+        "Histórico": [],
+        "Informações Adicionais":[]
+        }
     for pergunta in form_data["perguntas"]:
         secao = pergunta["secao"]
-        if secao not in sections:
-            sections[secao] = []
+        # if secao not in sections:
+        #     sections[secao] = []
         sections[secao].append(pergunta)
     
     # Adicionar perguntas por seção
@@ -370,7 +415,7 @@ def generate_xlsx_form(form_data, output_path):
     
     # Rodapé
     row += 2
-    worksheet.write(f'A{row}', f"Formulário Facilty&Bond - {form_data['produto']}")
+    worksheet.write(f'A{row}', f"Questionário de cotação - {form_data['produto']}")
     
     workbook.close()
     return output_path
@@ -464,11 +509,17 @@ def generate_html_form(form_data, output_path):
 """
     
     # Agrupar perguntas por seção
-    sections = {}
+    sections = {
+        "Dados do Proponente":[],
+        "Informações do Evento":[],
+        "Cobertura":[],
+        "Histórico": [],
+        "Informações Adicionais":[]
+        }
     for pergunta in form_data["perguntas"]:
         secao = pergunta["secao"]
-        if secao not in sections:
-            sections[secao] = []
+        # if secao not in sections:
+        #     sections[secao] = []
         sections[secao].append(pergunta)
     
     # Adicionar perguntas por seção
