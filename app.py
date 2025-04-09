@@ -134,18 +134,23 @@ def extract_questions(file_path):
     else:
         return []
 
-def organize_questions_by_section(questions):
+def organize_questions_by_section(questions, product):
     """Organiza perguntas em seções lógicas baseadas em palavras-chave"""
-    sections = {
-        "Dados do Proponente": ["nome", "cnpj", "cpf", "endereço", "telefone", "email", "contato", "empresa", "proponente"],
-        "Informações do Evento": ["evento", "data", "local", "participantes", "público", "duração", "horário"],
-        "Cobertura": ["cobertura", "limite", "valor", "indenização", "franquia", "seguro", "apólice"],
-        "Histórico": ["sinistro", "ocorrência", "reclamação", "histórico", "anterior"],
-        "Informações Adicionais": []
-    }
+    sections = {}
+
+    match product:
+        case "rc_eventos":
+            sections = {
+                "Dados do Proponente": ["nome", "cnpj", "cpf", "endereço", "telefone", "email", "contato", "empresa", "proponente"],
+                "Informações do Evento": ["evento", "data", "local", "participantes", "público", "duração", "horário"],
+                "Cobertura": ["cobertura", "limite", "valor", "indenização", "franquia", "seguro", "apólice"],
+                "Histórico": ["sinistro", "ocorrência", "reclamação", "histórico", "anterior"],
+                "Informações Adicionais": []
+            }
     
     organized_questions = []
     
+
     for question in questions:
         assigned = False
         question_lower = question["texto"].lower()
@@ -199,14 +204,8 @@ def ai_filter(questions):
     model="gpt-4o-mini",
     messages=[
         {
-            "role": "system",
-            "content": "Você é um assistente que retorna apenas JSON válido. Sempre responda no formato `{ \"data\": [] }` sem explicações extras.\n\n"
-                       "Você receberá um array contendo itens em string, cada item representa um formulário. "
-                       "Sua função é criar um formulário inteligente unificado.\n\n"
-                       "Cada item do array representa um formulário. Retorne apenas JSON válido com a estrutura "
-                       "{ \"data\": [{'texto': 'Questão', 'tipo': 'text', 'obrigatorio': \"false\", 'secao': 'Geral'}] } "
-                       "Por padrão, toda 'secao' é 'Geral'.\n\n"
-                       "O valor `false` deve sempre ser uma string \"false\"."
+        "role": "system",
+        "content": "Você é um assistente que retorna apenas JSON válido. Sempre responda no formato `{ \"data\": [] }` sem explicações extras.\n\nVocê receberá um array contendo itens em string, onde cada item representa um formulário separado. Sua função é consolidar todos esses formulários em um único questionário inteligente unificado.\n\nCada item representa um questionário utilizado por seguradoras para cotação de um mesmo produto. Esses produtos estão agrupados em um dos seguintes **5 ramos principais de seguros**:\n- **Garantia**\n- **RC & RE (Responsabilidade Civil e Riscos de Engenharia)**\n- **Benefícios**\n- **Patrimonial**\n- **Especiais**\n\nCom base no conteúdo dos formulários, **identifique o ramo** e organize as perguntas de forma coerente, agrupando e padronizando os campos conforme as melhores práticas para aquele ramo.\n\nExemplos de seções típicas que podem aparecer:\n- Para **Garantia**: “Tomador”, “Objeto do Contrato”, “Valor Garantido”, “Prazo”, “Histórico Financeiro”\n- Para **RC & RE**: “Atividade”, “Faturamento”, “Exposição ao Risco”, “Coberturas”, “Reclamações Passadas”\n- Para **Benefícios**: “Funcionários”, “Plano de Saúde”, “Coberturas”, “Regras de Elegibilidade”\n- Para **Patrimonial**: “Local de Risco”, “Bens Segurados”, “Proteção e Segurança”, “Histórico de Sinistros”\n- Para **Especiais**: “Evento”, “Participantes”, “Infraestrutura”, “Coberturas Especiais”\n\nRetorne apenas JSON válido com a seguinte estrutura:\n`{ \"data\": [{ \"texto\": \"Questão\", \"tipo\": \"text\", \"obrigatorio\": \"false\", \"secao\": \"Geral\" }] }`\n\nA chave `\"texto\"` deve conter a pergunta padronizada em português (sem duplicações desnecessárias). \nA chave `\"tipo\"` deve ser uma destas: `\"text\"`, `\"number\"`, `\"date\"`, `\"select\"`, `\"boolean\"` ou `\"email\"` — escolha com base na natureza da pergunta.\nA chave `\"obrigatorio\"` deve conter **sempre uma string** com valor `\"true\"` ou `\"false\"`.\n\n⚠️ Se duas seguradoras perguntarem a mesma coisa com redações diferentes, normalize para uma só.\n⚠️ Se uma pergunta aparecer em apenas um formulário, ela ainda deve ser incluída.⚠️Local e Data: | Assinatura do Proponente: Você IGNORA. \n⚠️ Retorne apenas o JSON. Nenhuma explicação adicional."
         },
         {
             "role": "user",
@@ -226,19 +225,22 @@ def generate_unified_form(product, questions, insurers):
     form_id = str(uuid.uuid4())
     
     # Organizar perguntas por seção
+
+    # Descomentar para produção
     questions=ai_filter(questions)
   
     json_load = json.loads(questions.choices[0].message.content)["data"]
-    organized_questions = organize_questions_by_section(json_load)
-
+    # organized_questions = organize_questions_by_section(json_load, product)
+    #------------------------------------------------------------------------
   
+
     # Criar formulário unificado
     unified_form = {
         "id": form_id,
         "produto": product,
         "titulo": f"Questionário de cotação - {product}",
         "seguradoras": insurers,
-        "perguntas": organized_questions,
+        "perguntas": json_load,
         "data_criacao": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     }
 
@@ -276,22 +278,21 @@ def generate_docx_form(form_data, output_path):
     doc.add_paragraph()
     doc.add_heading(form_data["titulo"], 0)
 
-    # Informações do formulário (comentadas por enquanto)
-    # doc.add_paragraph(f"Produto: {form_data['produto']}")
-    # doc.add_paragraph(f"Seguradoras: {', '.join(form_data['seguradoras'])}")
-    # doc.add_paragraph(f"Data de criação: {form_data['data_criacao']}")
     doc.add_paragraph()
 
     # Agrupar perguntas por seção
-    sections = {
-        "Dados do Proponente": [],
-        "Informações do Evento": [],
-        "Cobertura": [],
-        "Histórico": [],
-        "Informações Adicionais": []
-    }
+    # sections = {
+    #     "Dados do Proponente": [],
+    #     "Informações do Evento": [],
+    #     "Cobertura": [],
+    #     "Histórico": [],
+    #     "Informações Adicionais": []
+    # }
+    sections = {}
     for pergunta in form_data["perguntas"]:
         secao = pergunta["secao"]
+        if secao not in sections:
+            sections[secao] = []
         sections[secao].append(pergunta)
 
     # Adicionar perguntas por seção
@@ -324,6 +325,25 @@ def generate_docx_form(form_data, output_path):
         "e-mail: elementares@facilitybond.com.br"
     )
     run2.font.size = Pt(9)
+
+    # Espaçamento antes da seção final
+    doc.add_paragraph()
+
+    # Criar uma tabela com 2 colunas para Local/Data e Assinatura
+    table = doc.add_table(rows=2, cols=2)
+    table.autofit = True
+    table.columns[0].width = Inches(3)
+    table.columns[1].width = Inches(3.5)
+
+    # Primeira linha: rótulos
+    cell1, cell2 = table.rows[0].cells
+    cell1.paragraphs[0].add_run("Local e Data:").bold = True
+    cell2.paragraphs[0].add_run("Assinatura do Proponente:").bold = True
+
+    # Segunda linha: campos preenchíveis (linhas)
+    cell1, cell2 = table.rows[1].cells
+    cell1.paragraphs[0].add_run(" " * 40 + "___________________________")
+    cell2.paragraphs[0].add_run(" " * 40 + "_____________________________")
 
     doc.save(output_path)
     return output_path
@@ -509,17 +529,11 @@ def generate_html_form(form_data, output_path):
 """
     
     # Agrupar perguntas por seção
-    sections = {
-        "Dados do Proponente":[],
-        "Informações do Evento":[],
-        "Cobertura":[],
-        "Histórico": [],
-        "Informações Adicionais":[]
-        }
+    sections = {}
     for pergunta in form_data["perguntas"]:
         secao = pergunta["secao"]
-        # if secao not in sections:
-        #     sections[secao] = []
+        if secao not in sections:
+            sections[secao] = []
         sections[secao].append(pergunta)
     
     # Adicionar perguntas por seção
@@ -590,6 +604,8 @@ def upload():
         files = request.files.getlist('files[]')
         product = request.form.get('produto', '')
         
+       
+  
         if not product:
             flash('Nome do produto é obrigatório')
             return redirect(request.url)
@@ -636,7 +652,7 @@ def upload():
         html_path = os.path.join(app.config['FORMS_FOLDER'], f"{form_id}.html")
         
         generate_docx_form(unified_form, docx_path)
-        generate_xlsx_form(unified_form, xlsx_path)
+        # generate_xlsx_form(unified_form, xlsx_path)
         generate_html_form(unified_form, html_path)
         
         # Adicionar produto à lista se não existir

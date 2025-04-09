@@ -1,4 +1,169 @@
 {
-  "produtos": [],
-  "formularios": []
+    "produtos": [
+        "RC Eventos"
+    ],
+    "formularios": [
+        {
+            "id": "905ded55-e7b7-452a-82a4-c89d308abcde",
+            "produto": "RC Eventos",
+            "titulo": "Questionário de cotação - RC Eventos",
+            "seguradoras": [
+                "Tokio",
+                "Zurich"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do Proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "CNPJ:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Endereço (se mais de um, informe cada endereço):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Data do início das operações do proponente:",
+                    "tipo": "date",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Nos últimos cinco anos, houve alteração da denominação social do estabelecimento, compra ou fusão com outro estabelecimento? Se afirmativa, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Detalhes de seguros semelhantes contratados nos últimos dois anos:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Seguros Anteriores"
+                },
+                {
+                    "texto": "Seguradora:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Seguros Anteriores"
+                },
+                {
+                    "texto": "Período:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Seguros Anteriores"
+                },
+                {
+                    "texto": "Limites Segurados:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Seguros Anteriores"
+                },
+                {
+                    "texto": "Franquia:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Seguros Anteriores"
+                },
+                {
+                    "texto": "Foi recusada alguma proposta semelhante feita em nome do proponente? Se afirmativa, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Algum seguro foi cancelado ou teve a renovação recusada? Informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Houve qualquer reclamação de terceiros contra o proponente ou seus sócios/diretores? Informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Tem conhecimento de algum fato que possa resultar em reclamação contra o proponente?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Descrição do evento objeto da garantia pretendida:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Evento"
+                },
+                {
+                    "texto": "Público estimado:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Evento"
+                },
+                {
+                    "texto": "Período de realização do evento:",
+                    "tipo": "date",
+                    "obrigatorio": "true",
+                    "secao": "Evento"
+                },
+                {
+                    "texto": "Local onde ocorrerá o evento:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Evento"
+                },
+                {
+                    "texto": "O local é ambiente fechado ou ao ar livre?",
+                    "tipo": "select",
+                    "obrigatorio": "true",
+                    "secao": "Evento"
+                },
+                {
+                    "texto": "Existência de restaurante ou parque de diversões no local do evento:",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Evento"
+                },
+                {
+                    "texto": "O proponente deseja cobertura para artistas ou atletas que participarão do evento?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Evento"
+                },
+                {
+                    "texto": "Limite de Responsabilidade pretendido:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Justificativa do valor pretendido:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Local e Data:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Assinatura do Proponente ou representante Legal:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                }
+            ],
+            "data_criacao": "09/04/2025 15:42:06"
+        }
+    ]
 }
