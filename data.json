@@ -1,15 +1,33 @@
 {
     "produtos": [
-        "RC Eventos"
+        "Armazéns Gerais",
+        "Condominio, Proprietário e Locatário de Imóveis",
+        "Feiras e Exposições",
+        "RC Obras",
+        "RC Prestaçao de Serviço",
+        "Resp. Civil - Produtos no Exterior",
+        "Produtos Terreitório Nacional",
+        "Shopping"
     ],
     "formularios": [
         {
-            "id": "905ded55-e7b7-452a-82a4-c89d308abcde",
-            "produto": "RC Eventos",
-            "titulo": "Questionário de cotação - RC Eventos",
+            "id": "eb0c5ed1-5ae5-4a23-b552-9b9742219622",
+            "produto": "Armazéns Gerais",
+            "titulo": "Questionário de cotação - Armazéns Gerais",
             "seguradoras": [
-                "Tokio",
-                "Zurich"
+                "Zurich",
+                "Tokio"
+            ],
+            "perguntas": [],
+            "data_criacao": "10/04/2025 09:30:31"
+        },
+        {
+            "id": "246f8b2a-80c6-4c3b-9664-c6e51d80647f",
+            "produto": "Armazéns Gerais",
+            "titulo": "Questionário de cotação - Armazéns Gerais",
+            "seguradoras": [
+                "Zurich",
+                "Tokio"
             ],
             "perguntas": [
                 {
@@ -25,145 +43,1196 @@
                     "secao": "Geral"
                 },
                 {
-                    "texto": "Endereço (se mais de um, informe cada endereço):",
-                    "tipo": "text",
-                    "obrigatorio": "true",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Data do início das operações do proponente:",
+                    "texto": "Data de Início das Operações:",
                     "tipo": "date",
                     "obrigatorio": "true",
                     "secao": "Geral"
                 },
                 {
-                    "texto": "Nos últimos cinco anos, houve alteração da denominação social do estabelecimento, compra ou fusão com outro estabelecimento? Se afirmativa, informe detalhes.",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Detalhes de seguros semelhantes contratados nos últimos dois anos:",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Seguros Anteriores"
-                },
-                {
-                    "texto": "Seguradora:",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Seguros Anteriores"
-                },
-                {
-                    "texto": "Período:",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Seguros Anteriores"
-                },
-                {
-                    "texto": "Limites Segurados:",
-                    "tipo": "number",
-                    "obrigatorio": "false",
-                    "secao": "Seguros Anteriores"
-                },
-                {
-                    "texto": "Franquia:",
-                    "tipo": "number",
-                    "obrigatorio": "false",
-                    "secao": "Seguros Anteriores"
-                },
-                {
-                    "texto": "Foi recusada alguma proposta semelhante feita em nome do proponente? Se afirmativa, informe detalhes.",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Algum seguro foi cancelado ou teve a renovação recusada? Informe detalhes.",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Houve qualquer reclamação de terceiros contra o proponente ou seus sócios/diretores? Informe detalhes.",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Tem conhecimento de algum fato que possa resultar em reclamação contra o proponente?",
-                    "tipo": "text",
-                    "obrigatorio": "false",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Descrição do evento objeto da garantia pretendida:",
-                    "tipo": "text",
-                    "obrigatorio": "true",
-                    "secao": "Evento"
-                },
-                {
-                    "texto": "Público estimado:",
+                    "texto": "Faturamento bruto da empresa nos últimos 12 meses:",
                     "tipo": "number",
                     "obrigatorio": "true",
-                    "secao": "Evento"
+                    "secao": "Geral"
                 },
                 {
-                    "texto": "Período de realização do evento:",
-                    "tipo": "date",
+                    "texto": "Previsão de faturamento para o período do seguro:",
+                    "tipo": "number",
                     "obrigatorio": "true",
-                    "secao": "Evento"
+                    "secao": "Geral"
                 },
                 {
-                    "texto": "Local onde ocorrerá o evento:",
+                    "texto": "Faturamento relativo às operações de carga e descarga nos últimos 12 meses:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Previsão de faturamento para carga e descarga:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Tipo de carga e sua embalagem:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Operações"
+                },
+                {
+                    "texto": "Tonelagem movimentada nos últimos 12 meses (Transporte):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Operações"
+                },
+                {
+                    "texto": "Tonelagem movimentada nos últimos 12 meses (Armazém):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Operações"
+                },
+                {
+                    "texto": "Equipamentos utilizados nas operações de carga e descarga:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Operações"
+                },
+                {
+                    "texto": "Local em que se processa as operações de carga e descarga:",
                     "tipo": "text",
                     "obrigatorio": "true",
-                    "secao": "Evento"
+                    "secao": "Operações"
                 },
                 {
-                    "texto": "O local é ambiente fechado ou ao ar livre?",
-                    "tipo": "select",
+                    "texto": "Caracterizar o início e o fim das operações de carga e descarga:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Operações"
+                },
+                {
+                    "texto": "O Proponente presta serviços de carga e descarga com início ou fim em embarcações?",
+                    "tipo": "boolean",
                     "obrigatorio": "true",
-                    "secao": "Evento"
+                    "secao": "Operações"
                 },
                 {
-                    "texto": "Existência de restaurante ou parque de diversões no local do evento:",
+                    "texto": "Deseja coberturas adicionais? (Danos às mercadorias objeto das operações):",
                     "tipo": "boolean",
                     "obrigatorio": "false",
-                    "secao": "Evento"
+                    "secao": "Coberturas"
                 },
                 {
-                    "texto": "O proponente deseja cobertura para artistas ou atletas que participarão do evento?",
+                    "texto": "Deseja coberturas adicionais? (Danos às mercadorias de terceiros):",
                     "tipo": "boolean",
                     "obrigatorio": "false",
-                    "secao": "Evento"
+                    "secao": "Coberturas"
                 },
                 {
-                    "texto": "Limite de Responsabilidade pretendido:",
+                    "texto": "Deseja coberturas adicionais? (Danos a equipamentos de propriedade de terceiros):",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Valor total da carga operada pelo proponente nos últimos 12 meses:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Valor das mercadorias de terceiros armazenadas/movimentadas:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Percentagem de transportes efetuados pelo Proponente:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Percentagem de transportes efetuados por terceiros:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Conhecimento de qualquer fato que possa gerar reclamação contra a empresa:",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Conhecimento de reclamações contra si nos últimos cinco anos:",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Alguma seguradora recusou proposta de seguro semelhante?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Nome da seguradora anterior que garantiu riscos similares:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Previsão para ampliação das atividades do proponente no período do seguro:",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Detalhar toda a operação dos armazéns:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Importância Segurada Pretendida por cobertura:",
                     "tipo": "number",
                     "obrigatorio": "true",
                     "secao": "Geral"
                 },
                 {
-                    "texto": "Justificativa do valor pretendido:",
-                    "tipo": "text",
-                    "obrigatorio": "true",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Local e Data:",
-                    "tipo": "text",
-                    "obrigatorio": "true",
-                    "secao": "Geral"
-                },
-                {
-                    "texto": "Assinatura do Proponente ou representante Legal:",
-                    "tipo": "text",
+                    "texto": "Declaração de veracidade das informações prestadas:",
+                    "tipo": "boolean",
                     "obrigatorio": "true",
                     "secao": "Geral"
                 }
             ],
-            "data_criacao": "09/04/2025 15:42:06"
+            "data_criacao": "10/04/2025 09:33:48"
+        },
+        {
+            "id": "bd1e9fb9-b32d-4185-9d8d-2eb03a8b4e01",
+            "produto": "Condominio, Proprietário e Locatário de Imóveis",
+            "titulo": "Questionário de cotação - Condominio, Proprietário e Locatário de Imóveis",
+            "seguradoras": [
+                "Zurich",
+                "Tokio"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Descrição da situação do imóvel em relação à vizinhança (incluir informações sobre afastamento e ocupação)",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "O imóvel é exclusivamente residencial?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Faturamento nos últimos 12 meses:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de pavimentos (incluindo subsolo, térreo e pilotis):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Área total construída (m²):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de elevadores e respectivas locaçãos individuais:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de escadas rolantes:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de anúncios luminosos:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de anúncios não luminosos:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Área de cada anúncio (m²):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de antenas:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Altura de cada antena em relação à sua base:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de piscinas:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de saunas:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de quadras de esporte e salas de ginástica:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Frações ideais relativas ao imóvel de propriedade ou locado pelo proponente:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "O proponente tem conhecimento de algum fato que possa gerar uma reclamação?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Existem reclamações contra o proponente nos últimos cinco anos? Indique data, valor e causa:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Alguma Seguradora recusou proposta de seguro semelhante? Detalhe os motivos:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Qual foi a Seguradora anterior para os riscos propostos?",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Importância segurada pretendida:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                }
+            ],
+            "data_criacao": "10/04/2025 09:38:56"
+        },
+        {
+            "id": "f79af2e0-0efe-4c38-8934-6375c494d6b3",
+            "produto": "Feiras e Exposições",
+            "titulo": "Questionário de cotação - Feiras e Exposições",
+            "seguradoras": [
+                "Zurich",
+                "Tokio"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "CNPJ:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Data de início das operações comerciais do proponente:",
+                    "tipo": "date",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Valor total que será gasto no evento:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Denominação da Feira:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Descrição da feira:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número previsto de visitantes:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de expositores participantes do evento:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de expositores segurados (se não for contratado pelo promotor):",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Deseja cobertura para danos entre segurados (R.C. Cruzada)?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Existência de restaurante ou similar:",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Existência de parque de diversão:",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Outras atrações (discriminar):",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Conhecimento de qualquer fato que possa gerar reclamação contra a empresa:",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Conhecimento de reclamações contra si nos últimos cinco anos (indicar data, valor e causa):",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Alguma seguradora recusou proposta de seguro semelhante ou estabeleceu condições agravadas?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Seguradora anterior para garantia de riscos propostos:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Importância segurada pretendida:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Declaro que as informações acima são verdadeiras e que estou ciente das condições de indenização.",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                }
+            ],
+            "data_criacao": "10/04/2025 09:43:21"
+        },
+        {
+            "id": "df4ccdd4-fe9f-49d4-96a5-f5db54ecd0ed",
+            "produto": "RC Obras",
+            "titulo": "Questionário de cotação - RC Obras",
+            "seguradoras": [
+                "Zurich",
+                "Zurich",
+                "Tokio"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Endereço da obra (endereço completo):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "UF:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Telefone:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "E-mail do proponente:",
+                    "tipo": "email",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Atividade da empresa (projeto, construção, supervisão etc.):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Data do início das operações da empresa:",
+                    "tipo": "date",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número total de funcionários da empresa (discriminado):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de sócios ou diretores:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de engenheiros e arquitetos:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Outros funcionários:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Houve qualquer reclamação de terceiros contra a empresa ou contra qualquer de seus sócios ou diretores?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "O proponente tem conhecimento de qualquer fato que possa resultar em reclamação contra a empresa?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Alguma seguradora recusou proposta de seguro semelhante feita pelo proponente?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Descrever as medidas de segurança adotadas contra acidentes pessoais e danos a bens de terceiros:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Segurança"
+                },
+                {
+                    "texto": "Localização da obra em relação à vizinhança (descrever):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Características do terreno (natureza, topografia):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Intensidade de trânsito nos logradouros:",
+                    "tipo": "select",
+                    "obrigatorio": "false",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Condições de estabilidade do terreno:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Nome da construtora e/ou demolidora:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Tempo de execução da obra:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Área total da obra:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Número de pavimentos (total):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Haverá uso de explosivos?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Obra"
+                },
+                {
+                    "texto": "Valor total do contrato:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Financeiro"
+                },
+                {
+                    "texto": "Importância Segurada pretendida:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Financeiro"
+                },
+                {
+                    "texto": "Coberturas adicionais solicitadas (se sim, descreva):",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Cobertura"
+                },
+                {
+                    "texto": "Existem previsões de ampliação das atividades do proponente durante o período do seguro proposto?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                }
+            ],
+            "data_criacao": "10/04/2025 09:51:18"
+        },
+        {
+            "id": "ae0ad44a-4ba6-47b4-8b6e-33f083210aac",
+            "produto": "RC Prestaçao de Serviço",
+            "titulo": "Questionário de cotação - RC Prestaçao de Serviço",
+            "seguradoras": [
+                "Zurich",
+                "Tokio"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "CNPJ:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Data de início das operações:",
+                    "tipo": "date",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Tipo de serviço prestado:",
+                    "tipo": "select",
+                    "obrigatorio": "true",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Limpeza e conservação de imóveis e seu conteúdo",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Manutenção de equipamentos industriais",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Outros, especificar:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Número total de empregados que prestam serviços em local de terceiros:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Empregados"
+                },
+                {
+                    "texto": "Número de empregados que prestam exclusivamente os serviços previstos:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Empregados"
+                },
+                {
+                    "texto": "Faturamento da empresa nos últimos 12 meses:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Financeiro"
+                },
+                {
+                    "texto": "Informar os três maiores contratos firmados pela empresa (nome do cliente e valor do contrato):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Contratos"
+                },
+                {
+                    "texto": "O proponente tem conhecimento de qualquer fato que possa advir uma reclamação contra a empresa?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Se afirmativo, forneça detalhes:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "A empresa tem conhecimento de alguma reclamação contra si nos últimos cinco anos?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Se positivo, indicar a data, o valor e a causa de cada reclamação:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Alguma Seguradora recusou proposta de seguro semelhante feito pelo proponente?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Seguradoras"
+                },
+                {
+                    "texto": "Se afirmativo, esclareça os motivos alegados pela Seguradora:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Seguradoras"
+                },
+                {
+                    "texto": "No caso de ter seguro para garantia de quaisquer riscos propostos, indique a Seguradora:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Seguradoras"
+                },
+                {
+                    "texto": "Existe alguma previsão para ampliação das atividades do proponente durante o período de vigência do seguro proposto?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Atividades"
+                },
+                {
+                    "texto": "Importância Segurada pretendida:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Financeiro"
+                },
+                {
+                    "texto": "Declaro que as informações acima são verdadeiras e que estou ciente das consequências em caso de sinistro:",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Declaração"
+                }
+            ],
+            "data_criacao": "10/04/2025 09:55:19"
+        },
+        {
+            "id": "9d486e12-3e13-40b3-ab47-b9b33ff63d4a",
+            "produto": "Resp. Civil - Produtos no Exterior",
+            "titulo": "Questionário de cotação - Resp. Civil - Produtos no Exterior",
+            "seguradoras": [
+                "Tokio",
+                "Zurich"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "CNPJ:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Data de início das operações:",
+                    "tipo": "date",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Tipo de serviço prestado:",
+                    "tipo": "select",
+                    "obrigatorio": "true",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Limpeza e conservação de imóveis e seu conteúdo - serviços de escritório - manutenção de máquinas e aparelhos de uso doméstico e de escritório",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Manutenção de equipamentos industriais, elevadores, escadas rolantes e centrais de ar condicionado",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Outros, especificar:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Serviços"
+                },
+                {
+                    "texto": "Número total de empregados que prestam serviços em local de terceiros:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Funcionários"
+                },
+                {
+                    "texto": "Número de empregados que prestam exclusivamente os serviços previstos no subitem 3.1:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Funcionários"
+                },
+                {
+                    "texto": "Faturamento da empresa nos últimos 12 meses:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Financeiro"
+                },
+                {
+                    "texto": "Informar os três maiores contratos firmados pela empresa: (nome do cliente e valor do contrato)",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Financeiro"
+                },
+                {
+                    "texto": "O proponente tem conhecimento de qualquer fato que possa advir uma reclamação contra a empresa? Em caso afirmativo, forneça detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "A empresa tem conhecimento de alguma reclamação contra si nos últimos cinco anos? Em caso positivo, indicar a data, o valor e a causa de cada reclamação.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "Alguma Seguradora recusou proposta de seguro semelhante feito pelo proponente, estabeleceu condições agravadas para sua aceitação, ou recusou a renovação de algum seguro seu? Em caso afirmativo, esclareça os motivos alegados para tanto pela Seguradora.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Reclamações"
+                },
+                {
+                    "texto": "No caso de o proponente possuir ou já ter possuído seguro para garantia de quaisquer riscos propostos, indique a Seguradora.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Seguradora"
+                },
+                {
+                    "texto": "Existe alguma previsão para ampliação das atividades do proponente, no período de vigência do seguro proposto?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Importância Segurada pretendida:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Declaro que as informações acima são verdadeiras e que estou ciente de que, em caso de sinistro, se for verificado que os valores que serviram de base ao cálculo do prêmio foram inferiores aos contabilizados, a indenização será reduzida proporcionalmente à diferença entre o prêmio devido e o pago.",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                }
+            ],
+            "data_criacao": "10/04/2025 10:01:07"
+        },
+        {
+            "id": "eb61c2e5-2928-4e3c-8ca5-20eb189ef24a",
+            "produto": "Produtos Terreitório Nacional",
+            "titulo": "Questionário de cotação - Produtos Terreitório Nacional",
+            "seguradoras": [
+                "Zurich",
+                "Tokio"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "CNPJ do proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Data de início das operações:",
+                    "tipo": "date",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Durante os últimos cinco anos, houve alteração da denominação social, incorporação, compra ou fusão? Caso positivo, informe detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Atividades do proponente (descrever detalhadamente):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Relacionar endereço de todos os estabelecimentos do proponente (Rua/Cidade/Estado):",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Trânsito ou permanência de terceiros nos estabelecimentos do proponente (alta, média ou baixa):",
+                    "tipo": "select",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Faturamento bruto da empresa a preço constante:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Número de empregados:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Existência de desvio ferroviário, caldeiras ou equipamentos móveis (assinalar):",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Interesse na contratação de coberturas adicionais (especificar):",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "O proponente tem conhecimento de qualquer fato que possa advir uma reclamação contra a empresa? Caso afirmativo, forneça detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Histórico de Reclamações"
+                },
+                {
+                    "texto": "No tocante ao risco, o proponente tem conhecimento de alguma reclamação nos últimos cinco anos? Caso positivo, indique data, valor e causa.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Histórico de Reclamações"
+                },
+                {
+                    "texto": "Alguma Seguradora recusou proposta de seguro semelhante? Esclareça os motivos.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Histórico de Reclamações"
+                },
+                {
+                    "texto": "Coberturas e importâncias seguradas pretendidas:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Informar sobre produtos fabricados, vendidos ou distribuídos:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Produtos"
+                },
+                {
+                    "texto": "Produtos no exterior (Caso deseje cobertura, preencher questionário específico):",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Produtos"
+                },
+                {
+                    "texto": "Indicar produtos que tiveram sua fabricação cessada nos últimos doze meses:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Produtos"
+                },
+                {
+                    "texto": "O produto contém algum elemento que já tenha causado danos a terceiros? Indicar detalhes.",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Experiência do Risco"
+                },
+                {
+                    "texto": "Alguma Seguradora recusou proposta de seguro semelhante feita pelo proponente?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Histórico de Reclamações"
+                }
+            ],
+            "data_criacao": "10/04/2025 10:04:28"
+        },
+        {
+            "id": "6dd8e974-2faa-4d27-9810-c7a7c3079d38",
+            "produto": "Shopping",
+            "titulo": "Questionário de cotação - Shopping",
+            "seguradoras": [
+                "Zurich",
+                "Tokio"
+            ],
+            "perguntas": [
+                {
+                    "texto": "Nome do Proponente:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Administrador do Empreendimento:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Total de Comerciantes:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Endereço:",
+                    "tipo": "text",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Data de início das operações comerciais do Shopping Center:",
+                    "tipo": "date",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Volume de inclusões e exclusões de comerciantes nos últimos cinco anos:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Descrição do imóvel em relação à vizinhança:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "O proponente tem conhecimento de reclamações contra o Shopping Center?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Armazenamento de substâncias inflamáveis ou tóxicas no imóvel?",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Serviço de vigilância?",
+                    "tipo": "select",
+                    "obrigatorio": "true",
+                    "secao": "Segurança"
+                },
+                {
+                    "texto": "Descrição do sistema de combate e prevenção de incêndios:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Segurança"
+                },
+                {
+                    "texto": "Sinistros ocorridos nos últimos 10 anos:",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Histórico de Sinistros"
+                },
+                {
+                    "texto": "Existência de equipamentos especiais (ex: empilhadeiras, restaurantes):",
+                    "tipo": "text",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Faturamento bruto do Shopping Center - Receita Operacional (últimos 12 meses):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Financeiro"
+                },
+                {
+                    "texto": "Número de empregados do Shopping Center:",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Recusa de propostas para seguro de responsabilidade civil por parte de seguradoras:",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Geral"
+                },
+                {
+                    "texto": "Importância Segurada pretendida (Cobertura Básica):",
+                    "tipo": "number",
+                    "obrigatorio": "true",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Possui seguro para riscos propostos?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Deseja cobertura para danos decorrentes de incêndio/explosão/lucros cessantes?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Valor global das mercadorias no Shopping Center:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Deseja cobertura acessória de RC-Empregador?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Deseja cobertura de RC-Guarda de Veículos de Terceiros?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Número total de vagas para automóveis:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Número total de vagas para motocicletas:",
+                    "tipo": "number",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Existência de dispositivo de segurança para estacionamento?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Segurança"
+                },
+                {
+                    "texto": "Controle de entrada/saída dos veículos?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Segurança"
+                },
+                {
+                    "texto": "Existência de manobrista?",
+                    "tipo": "boolean",
+                    "obrigatorio": "false",
+                    "secao": "Segurança"
+                },
+                {
+                    "texto": "Cobertura pretendida para RC-Guarda de Veículos:",
+                    "tipo": "select",
+                    "obrigatorio": "false",
+                    "secao": "Coberturas"
+                },
+                {
+                    "texto": "Declaração de veracidade das informações:",
+                    "tipo": "boolean",
+                    "obrigatorio": "true",
+                    "secao": "Geral"
+                }
+            ],
+            "data_criacao": "10/04/2025 10:07:43"
         }
     ]
 }

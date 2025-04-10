@@ -63,25 +63,6 @@ def extract_questions_from_pdf(file_path):
                 text = page.extract_text()
                 questions.append(text)
           
-                # # Procurar por padrões comuns de perguntas
-                # patterns = [
-                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\?',  # Texto seguido por ponto de interrogação
-                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+):\s*',  # Texto seguido por dois pontos
-                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\s*_+',  # Texto seguido por sublinhados
-                #     r'([A-Za-zÀ-ÖØ-öø-ÿ\s\d]+)\[\s*\]'  # Texto seguido por colchetes vazios
-                # ]
-                
-                # for pattern in patterns:
-                #     matches = re.findall(pattern, text)
-                #     for match in matches:
-                #         question = match.strip()
-                #         if question and len(question) > 3 and question not in [q["texto"] for q in questions]:
-                #             questions.append({
-                #                 "texto": question,
-                #                 "tipo": "text",
-                #                 "obrigatorio": False,
-                #                 "secao": "Geral"
-                #             })
     except Exception as e:
         print(f"Erro ao extrair perguntas do PDF: {e}")
     
@@ -220,6 +201,7 @@ def ai_filter(questions):
     presence_penalty=0
     )
     return response
+
 def generate_unified_form(product, questions, insurers):
     """Gera um formulário unificado baseado nas perguntas extraídas"""
     form_id = str(uuid.uuid4())
@@ -271,8 +253,10 @@ def generate_docx_form(form_data, output_path):
     if os.path.isfile(logo_path):
         run = header_paragraph.add_run()
         run.add_picture(logo_path, width=Inches(3))
+        doc.add_paragraph()
     else:
         header_paragraph.text = "Facility & Bond Adm e Corretagem de Seguros Ltda."
+        doc.add_paragraph()
 
     # Título
     doc.add_paragraph()
@@ -314,12 +298,13 @@ def generate_docx_form(form_data, output_path):
  
 
     # Primeira linha com espaçamento expandido
+    doc.add_paragraph()
     run1 = p.add_run("Facility & Bond Adm e Corretagem de Seguros Ltda.\n")
     set_spacing(run1, 40)  # 2pt = 40
 
     # Restante das informações do rodapé
     run2 = p.add_run(
-        "Rua pompeu Vairo, 123 - Vila Thaís\n"
+        "Rua Pompeu Vairo, 123 - Vila Thaís\n"
         "CEP 12942 - 122 | Atibaia - SP\n"
         "Tel/Whatsapp: (11) 4418 - 8329\n"
         "e-mail: elementares@facilitybond.com.br"
@@ -604,8 +589,6 @@ def upload():
         files = request.files.getlist('files[]')
         product = request.form.get('produto', '')
         
-       
-  
         if not product:
             flash('Nome do produto é obrigatório')
             return redirect(request.url)
