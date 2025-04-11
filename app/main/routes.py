@@ -89,7 +89,7 @@ def upload():
         html_path = os.path.join(current_app.config['FORMS_FOLDER'], f"{form_id}.html")
         
         generate_docx_form(unified_form, docx_path)
-        # generate_xlsx_form(unified_form, xlsx_path)
+        generate_xlsx_form(unified_form, xlsx_path)
         generate_html_form(unified_form, html_path)
         
         # Adicionar produto à lista se não existir

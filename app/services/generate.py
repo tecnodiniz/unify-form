@@ -210,18 +210,11 @@ def generate_xlsx_form(form_data, output_path):
     worksheet.set_column('B:B', 40)
     worksheet.set_column('C:C', 40)
     
-    # Agrupar perguntas por seção
-    sections = {
-        "Dados do Proponente":[],
-        "Informações do Evento":[],
-        "Cobertura":[],
-        "Histórico": [],
-        "Informações Adicionais":[]
-        }
+    sections = {}
     for pergunta in form_data["perguntas"]:
         secao = pergunta["secao"]
-        # if secao not in sections:
-        #     sections[secao] = []
+        if secao not in sections:
+            sections[secao] = []
         sections[secao].append(pergunta)
     
     # Adicionar perguntas por seção
